@@ -10,7 +10,7 @@ void InicioSeccion(string usuario, string contrasena)
         cout << "Bien venido al menu administrador" << endl;
         cout << "1. Ver menu" << endl;
         cout << "2. Agregar productos al menu" << endl;
-        cout << "3. Inventario" << endl;
+        cout << "3. Recaudo" << endl;
         cin >> opcion;
         switch (opcion)
         {
@@ -18,10 +18,10 @@ void InicioSeccion(string usuario, string contrasena)
             // Mostra menu
             break;
         case 2:
-            // Agregar productos
+            
             break;
         case 3:
-        // Inventario
+                // recaudo
         default:
             cout << "Opcion invalida" << endl;
             break;
