@@ -52,41 +52,22 @@ double PrecioProducto(int codigo){
     
 
 
-double Ticket(int codigo[], int precio[], int cantidad){
+double Ticket(int codigo[], int cantidad[], int lineas){
     double total=0,subtotal=0;
 
     cout<<"\n Ticket de venta. \n "<<endl;
-    for(int i=0; i<cantidad; i++){
-        subtotal=//Toma de pedido  (pedido y cantidades)
+    for(int i=0; i<lineas; i++){
+        subtotal= PrecioProducto(codigo[i])*cantidad[i];//use ia para averiguar si podia multiplicar algo por la funcion.
         total= total+subtotal;
 
-
-
-        
+        cout<<NombreProducto(codigo[i])<<endl;
+        cout<<" Codigo "<<codigo[i]<<endl;
+        cout<<" Cantidad "<<cantidad[i]<<endl;
+        cout<<" $ "<<subtotal<<endl;
     }
-
-
-}
-
-int main(){
-
-
-
-
-
-
-
-
-
-
-
-
-    return 0;
+    cout<<"Total a pagar: "<<total<<endl;
+    return total;
 }
 
 
-//Administrador y usuario
-//control del dia
-//poder agregar mas cosas dentro del menu
-//Meter mas comida al menu
-//Hacer menus por cada tiempo de comida y bebidas aparte
+
