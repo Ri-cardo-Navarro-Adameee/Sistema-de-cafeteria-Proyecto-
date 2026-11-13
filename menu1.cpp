@@ -66,9 +66,36 @@ void combosMenu(){
     }
 }
 
+float tomaPedido(string nombreCombos[],float precios[]){
+     int opcion=0,cantidad=0,contador=0,respuesta;
+
+     for
+
+    cout<<"====TOMA DE PEDIDOS===="<<endl;
+
+    
+
+    cout<<"Pedido agregado correctamente"<<endl;
+    contador++;
+ do{
+    cout<<"Desea agregar otro pedido?"<<endl;
+    cout<<"1.Si"<<endl;
+    cout<<"2.No"<<endl;
+    cout<<"Seleccione"<<endl;
+    cin>>respuesta;
+ }
+ while(respuesta !=1);
+
+ return contador;
+    
+}
+
+    
+
 
 int main (){
-    int opcion=0;
+    int opcion=0,cantidad=0,contador=0,cantidadPedido[50],pedidoCombo[50];
+    float subTotalPedido[50];
 
     cout<<"----SISTEMA DE CAFETERIA----"<<endl;
     cout<<"1.Menu y Pedido"<<endl;
@@ -80,6 +107,7 @@ int main (){
     switch (opcion){
         case 1:
         combosMenu();
+        tomaPedido(cantidadPedido,subTotalPedido);
         break;
 
         case 2:
