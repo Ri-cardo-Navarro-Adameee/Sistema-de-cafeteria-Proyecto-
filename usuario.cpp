@@ -7,55 +7,60 @@ void InicioSeccion(string usuario, string contrasena)
     int opcion;
     if (usuario == "r" && contrasena == "1")
     {
-        do{
-            
-        cout << "Bien venido al menu administrador" << endl;
-        cout << "1. Ver menu" << endl;
-        cout << "2. Agregar productos al menu" << endl;
-        cout << "3. Recaudo" << endl;
-        cin >> opcion;
-        switch (opcion)
+        do
         {
-        case 1:
-             {
-                string linea ;
-    ifstream archivo("menu.txt");
-    
-    if (!archivo.is_open()) {
-        cout << "Error no se puede abrir" << endl;
-    } else {
-        getline(archivo, linea);
-        cout << linea << endl;
-        archivo.close();
-    }
-    break;
-}
+
+            cout << "Bienvenido al menu administrador" << endl;
+            cout << "1. Ver menu" << endl;
+            cout << "2. Agregar productos al menu" << endl;
+            cout << "3. Recaudo" << endl;
+            cin >> opcion;
+            switch (opcion)
+            {
+            case 1:
+            {
+                string linea;
+                ifstream archivo("menu.txt");
+
+                if (!archivo.is_open())
+                {
+                    cout << "Error no se puede abrir" << endl;
+                }
+                else
+                {
+                    while(getline(archivo, linea) )
+                    cout << linea << endl;
+                    
+                }
+                archivo.close();
+                break;
+            }
             break;
-        case 2:
-            
-            break;
-        case 3:
+            case 2: 
+
+                break;
+            case 3:
                 // recaudo
-        default:
-            cout << "Opcion invalida" << endl;
-            break;
-        }
-        } while (opcion!= 4 );
+            default:
+                cout << "Opcion invalida" << endl;
+                break;
+            }
+        } while (opcion != 4);
     }
     else
     {
         // Mostra el menu de katia
-        cout<<"Menu cafeteria"<<endl;
+        cout << "Menu cafeteria" << endl;
     }
 }
 int main()
 {
-string usuario = "", contrasena = "";
-cout<<"----SISTEMA DE CAFETERIA----"<<endl;
-cout<<"Introduzca el usuario"<<endl;
-cin >> usuario;
-cout<<"Introduzca la contrasena"<<endl;
-cin >> contrasena;
-InicioSeccion(usuario, contrasena);
+    string usuario = "", contrasena = "";
+    cout << "----SISTEMA DE CAFETERIA----" << endl;
+    cout << "Introduzca el usuario" << endl;
+    cin >> usuario;
+    cout << "Introduzca la contrasena" << endl;
+    cin >> contrasena;
+    InicioSeccion(usuario, contrasena);
     return 0;
 }
