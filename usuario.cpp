@@ -5,6 +5,7 @@ using namespace std;
 void InicioSeccion(string usuario, string contrasena)
 {
     int opcion;
+    string nuevocombo;
     if (usuario == "r" && contrasena == "1")
     {
         do
@@ -13,7 +14,7 @@ void InicioSeccion(string usuario, string contrasena)
             cout << "Bienvenido al menu administrador" << endl;
             cout << "1. Ver menu" << endl;
             cout << "2. Agregar productos al menu" << endl;
-            cout << "3. Recaudo" << endl;
+            cout << "3. Cierre del dia" << endl;
             cin >> opcion;
             switch (opcion)
             {
@@ -35,10 +36,23 @@ void InicioSeccion(string usuario, string contrasena)
                 archivo.close();
                 break;
             }
-            break;
-            case 2: 
+            
+            case 2: {
+                ofstream archivo ("menu.txt", ios :: app);
+if (!archivo.is_open()){
+cout<<"No se puede abrir el archivo"<<endl;
+} else {
+cout<<"Ingrese un nuevo con su precio para agregar en el menu"<<endl;
+cin.ignore();
+getline (cin, nuevocombo);
+archivo<<"\""<<nuevocombo<<"\""<<endl;
+archivo.close ();
+cout<<"Producto agregado"<<endl;
+}
 
-                break;
+                 break;
+            }
+        
             case 3:
                 // recaudo
             default:
