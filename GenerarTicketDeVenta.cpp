@@ -1,4 +1,7 @@
 #include <iostream>
+#include <fstream>
+#include <iostream>
+#include <string>
 using namespace std;
 
 string NombreProducto(int codigo){
@@ -51,21 +54,31 @@ double PrecioProducto(int codigo){
 }
     
 
-
-double Ticket(int codigo[], int cantidad[], int lineas){
-    double total=0,subtotal=0;
-
-    cout<<"\n Ticket de venta. \n "<<endl;
-    for(int i=0; i<lineas; i++){
-        subtotal= PrecioProducto(codigo[i])*cantidad[i];//use ia para averiguar si podia multiplicar algo por la funcion.
-        total= total+subtotal;
-
-        cout<<NombreProducto(codigo[i])<<endl;
-        cout<<" Codigo "<<codigo[i]<<endl;
-        cout<<" Cantidad "<<cantidad[i]<<endl;
-        cout<<" $ "<<subtotal<<endl;
+double Ticket(){
+    //Esto lee la toma de pedido de Katia.
+    ifstream pedido("Pedido.txt");
+    if(!pedido){
+        cout<<"No se ha guardado ningun pedido. "<<endl;
+        return 0;
     }
-    cout<<"Total a pagar: "<<total<<endl;
+
+    // Aca se va guardar el ticket
+    ofstream ticket("Ticket.txt");
+    int codigo=0, cantidad=0;
+    double total=0, subtotal=0;
+
+    cout <<"=== Ticket De Venta ==="<<endl;
+    ticket <<" Ticket De Venta "<<endl;
+
+    //Esto es lo que mostraran las "Lineas" del ticket.
+    while(pedido>>codigo>>cantidad){
+        subtotal=PrecioProducto(codigo)*cantidad;
+
+    }
+    
+    
+    pedido.close();
+    pedido.close();
     return total;
 }
 
