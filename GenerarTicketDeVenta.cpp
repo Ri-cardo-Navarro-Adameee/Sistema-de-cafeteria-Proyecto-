@@ -55,14 +55,13 @@ double PrecioProducto(int codigo){
     
 
 double Ticket(){
-    //Esto lee la toma de pedido de Katia.
-    ifstream pedido("Pedido.txt");
+    
+    ifstream pedido("aca va el coso de katia");
     if(!pedido){
         cout<<"No se ha guardado ningun pedido. "<<endl;
         return 0;
     }
 
-    // Aca se va guardar el ticket
     ofstream ticket("Ticket.txt");
     int codigo=0, cantidad=0;
     double total=0, subtotal=0;
@@ -70,12 +69,20 @@ double Ticket(){
     cout <<"=== Ticket De Venta ==="<<endl;
     ticket <<" Ticket De Venta "<<endl;
 
-    //Esto es lo que mostraran las "Lineas" del ticket.
+    
     while(pedido>>codigo>>cantidad){
         subtotal=PrecioProducto(codigo)*cantidad;
+        total=total+subtotal;
 
+        cout<< NombreProducto(codigo)<<endl;
+        cout<<" Codigo: "<<codigo<<endl;
+        cout<<" Cantidad: "<<cantidad<<endl;
+        cout<<" $ "<<subtotal<<endl;
+
+        ticket<<NombreProducto(codigo)<<"Codigo: "<<codigo<<" Cantidad: "<<cantidad<<" $ "<<subtotal<<endl;
     }
-    
+    cout<<" Total: $ "<<total<<endl;
+    ticket<<" Total: $ "<<total<<endl;
     
     pedido.close();
     pedido.close();
