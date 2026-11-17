@@ -85,7 +85,7 @@ double Ticket(){
     ticket<<" Total: $ "<<total<<endl;
     
     pedido.close();
-    pedido.close();
+    ticket.close();
     return total;
 }
 
