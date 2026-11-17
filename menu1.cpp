@@ -2,27 +2,72 @@
 #include <fstream>
 #include <string>
 using namespace std;
- 
-void combos(string nombre[]){
-    nombre[0]="Combo Desayuno: Pupusas + Cafe -$1.75";
-    nombre[1]="Combo Tradicional: Desayuno Tipico + Cafe -$1.75";
-    nombre[2]="Combo Armuerzo: Carne + Coca-Cola -$3.50";
-    nombre[3]="Combo Salvadoreno: Sopa de pata + Coca-Cola -$3.55";
-    nombre[4]="Combo Tipico: Empanadas, Elote loco, Yuca frita -$2.50";
-    nombre[5]="Combo Snack: Chips + Coca-Cola -$2.00";
-}
 
 
-void combosMenu(){
-    string nombre[6];
-    combos(nombre);
+void menu(){
+    ifstream archivo("menu.txt");
+     
+    if(!archivo.is_open()){
+        cout<<"Error al abrir el archivo del menu."<<endl;
+        return ;
+    }
+    int numero;
+    string nombre;
+    float precio;
+    char separador;
+
 
     cout<<"======MENU DE COMBOS======"<<endl;
+    
+    while(archivo>>numero>>separador){
 
-    for(int i=0;  i<6; i++){
-        cout<<i+1<<"."<<nombre[i]<<endl;
+        getline(archivo,nombre,'|');
+        archivo>>precio;
+
+        cout<<nombre<<"."<<nombre<<"-$"<<precio<<endl;
     }
+    archivo.close();
 }
+
+void tomaPedido(){
+    int opcion=0,cantidad=0;
+    char continuar;
+
+    ofstream archivo("pedido.txt", ios::app);
+
+    if(!archivo.is_open()){
+        cout<<"Error al abrir el archivo del menu."<<endl;
+        return;
+
+    }
+
+    do{
+
+        cout<<"Seleccione el numero de combo:"<<endl;
+        cin>>opcion;
+
+        if(opcion>=1 && opcion<=6){
+            cout<<"Ingrese la cantidad:"<<endl;
+            cin>>cantidad;
+
+            if(cantidad>0){
+                archivo<<opcion<<"|"<<cantidad<<endl;
+                cout<<"Pedido Realizado"<<endl;
+            }
+            else{
+                cout<<"La cantidad debe ser mayor a cero."<<endl;
+            }
+        }else{
+                cout<<"Opcion de combo invalida."<<endl;
+            }
+            cout<<"Desea agregar otro pedido? (S/N):"<<endl;
+            cin>>continuar;
+        }
+        while(continuar=='S' || continuar=='s');
+        archivo.close();
+
+    }
+
 
 
 int main (){
@@ -37,7 +82,8 @@ int main (){
 
     switch (opcion){
         case 1:
-        combosMenu();
+        menu();
+        tomaPedido();
         break;
 
         case 2:
@@ -57,3 +103,4 @@ int main (){
    
 return 0;
 }
+
