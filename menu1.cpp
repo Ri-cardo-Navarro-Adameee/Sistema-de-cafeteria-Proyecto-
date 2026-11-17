@@ -1,101 +1,32 @@
 #include <iostream>
+#include <fstream>
+#include <string>
 using namespace std;
  
-
-string nombreCombos[6]={
-    "Combo Desayuno:","Combo Tradiconal:","Combo Armuerzo:","Combo Salvadoreno:","Combo Tipico: ","Combo Snack:"};
-
-float precios[6]={1.75,1.75,3.50,3.75,2.50,2.00};
+void combos(string nombre[]){
+    nombre[0]="Combo Desayuno: Pupusas + Cafe -$1.75";
+    nombre[1]="Combo Tradicional: Desayuno Tipico + Cafe -$1.75";
+    nombre[2]="Combo Armuerzo: Carne + Coca-Cola -$3.50";
+    nombre[3]="Combo Salvadoreno: Sopa de pata + Coca-Cola -$3.55";
+    nombre[4]="Combo Tipico: Empanadas, Elote loco, Yuca frita -$2.50";
+    nombre[5]="Combo Snack: Chips + Coca-Cola -$2.00";
+}
 
 
 void combosMenu(){
-    int opcion,cantidad;
-    float total;
+    string nombre[6];
+    combos(nombre);
 
+    cout<<"======MENU DE COMBOS======"<<endl;
 
-    cout<<"=====MENU DE COMBOS====="<<endl;
-
-    for(int i=0; i<6; i++){
-        cout<<i+1<<"."<<nombreCombos[i];
-
-        switch (i){
-     case 0:
-         cout << "Pupusas + Cafe" << endl;
-        break;
-    case 1:
-         cout << "Desayuno Tipico + Cafe" << endl;
-         break;
-    case 2:
-          cout << "Carne + Coca Cola" << endl;
-          break;
-    
-    case 3:
-          cout << "Sopa de Pata + Coca cola" << endl;
-          break;
-
-    case 4:
-          cout << "Empanadas, Elote Loco, Yuca Frita"<<endl;
-          break;
-
-    case 5:
-         cout <<"Chips + Coca cola"<< endl;
-         break;
-     }
-     cout<<"-$"<<precios[i]<<endl;
-
-    }
-
-    cout<<"Seleccione un combo:"<<endl;
-    cin>>opcion;
-
-    if(opcion>=1 && opcion<=6){
-        cout<<"Selecciono:"<<nombreCombos[opcion-1]<<endl;
-
-        cout<<"Ingrese la cantidad:"<<endl;
-        cin>>cantidad;
-
-        if(cantidad>0){
-            total=precios[opcion-1]*cantidad;
-            cout<<"Total a pagar: $"<<total<<endl;
-        }else{
-            cout<<"Cantidad no invalida"<<endl;
-        }
-    }
-    else{
-        cout<<"Opcion invalida"<<endl;
+    for(int i=0;  i<6; i++){
+        cout<<i+1<<"."<<nombre[i]<<endl;
     }
 }
-
-float tomaPedido(string nombreCombos[],float precios[]){
-     int opcion=0,cantidad=0,contador=0,respuesta;
-
-     for
-
-    cout<<"====TOMA DE PEDIDOS===="<<endl;
-
-    
-
-    cout<<"Pedido agregado correctamente"<<endl;
-    contador++;
- do{
-    cout<<"Desea agregar otro pedido?"<<endl;
-    cout<<"1.Si"<<endl;
-    cout<<"2.No"<<endl;
-    cout<<"Seleccione"<<endl;
-    cin>>respuesta;
- }
- while(respuesta !=1);
-
- return contador;
-    
-}
-
-    
 
 
 int main (){
-    int opcion=0,cantidad=0,contador=0,cantidadPedido[50],pedidoCombo[50];
-    float subTotalPedido[50];
+    int opcion=0;
 
     cout<<"----SISTEMA DE CAFETERIA----"<<endl;
     cout<<"1.Menu y Pedido"<<endl;
@@ -107,7 +38,6 @@ int main (){
     switch (opcion){
         case 1:
         combosMenu();
-        tomaPedido(cantidadPedido,subTotalPedido);
         break;
 
         case 2:
