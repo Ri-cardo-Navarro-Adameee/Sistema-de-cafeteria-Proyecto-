@@ -38,11 +38,9 @@ void tomaPedido(){
     if(!archivo.is_open()){
         cout<<"Error al abrir el archivo del menu."<<endl;
         return;
-
     }
 
     do{
-
         cout<<"Seleccione el numero de combo:"<<endl;
         cin>>opcion;
 
