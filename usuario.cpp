@@ -1,9 +1,11 @@
 #include <iostream>
+#include <string>
+#include <fstream>
 using namespace std;
 void InicioSeccion(string usuario, string contrasena)
 {
     int opcion;
-    if (usuario == "ricardo" && contrasena == "1234")
+    if (usuario == "r" && contrasena == "1")
     {
         do{
             
@@ -15,7 +17,19 @@ void InicioSeccion(string usuario, string contrasena)
         switch (opcion)
         {
         case 1:
-            // Mostra menu
+             {
+                string linea ;
+    ifstream archivo("menu.txt");
+    
+    if (!archivo.is_open()) {
+        cout << "Error no se puede abrir" << endl;
+    } else {
+        getline(archivo, linea);
+        cout << linea << endl;
+        archivo.close();
+    }
+    break;
+}
             break;
         case 2:
             
