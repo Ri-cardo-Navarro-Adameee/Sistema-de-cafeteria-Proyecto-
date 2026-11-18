@@ -1,0 +1,4 @@
+Carlos Andres Gutierrez Guzman (00302124)
+
+Generar ticket de venta: Mostrar el desglose de la compra, el subtotal
+y el total final a cobrar.

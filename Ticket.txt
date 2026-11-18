@@ -1,0 +1,12 @@
+ Ticket De Venta 
+Combo Tipico.Codigo: 5 Cantidad: 5 $ 12.5
+ Total: $ 12.5
+-------------------------
+ Ticket De Venta 
+Combo Snack.Codigo: 6 Cantidad: 6 $ 12
+ Total: $ 12
+-------------------------
+ Ticket De Venta 
+Combo Especial.Codigo: 4 Cantidad: 5 $ 15
+ Total: $ 15
+-------------------------
