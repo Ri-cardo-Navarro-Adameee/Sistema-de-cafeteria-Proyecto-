@@ -225,23 +225,43 @@ void InicioSeccion(string usuario, string contrasena)
             }
 
             case 3:
-                // Cierre del dia
-                break;
+            {
+                ifstream archivoCierre("cierre_dia.txt");
+                double montoticket = 0.0, totalDia = 0.0;
+                int numeroticket = 0;
+                cout << "==== CIERRE DEL DIA ====" << endl;
+                if (archivoCierre.is_open())
+                {
+                    cout << "No hay registros de ventas" << endl;
+                }
+                else
+                {
+                    while (archivoCierre >> montoticket){
+                        numeroticket++;
+                        totalDia+= montoticket;
+                        cout<<"Ticket #"<<numeroticket<<": $ "<<montoticket<<endl;
+                    }
+                    archivoCierre.close ();
+                    cout<<"-------------------------------------"<<endl;
+                    cout<<"Total de tickets emitidos: "<<endl;
+                    cout<<"Ganacia total del dia: $"<<totalDia<<endl;
+                }
 
-                case 4:
-                cout<<"Fin."<<endl;
+                break;
+            }
+            case 4:
+                cout << "Fin." << endl;
                 break;
 
             default:
                 cout << "Opcion invalida" << endl;
                 break;
-                
             }
             // Parte nueva
             if (opcion != 4)
             {
                 cout << "Desea volver a intentarlo" << endl;
-                cin>> repetir;
+                cin >> repetir;
             }
             else
             {
@@ -249,10 +269,9 @@ void InicioSeccion(string usuario, string contrasena)
             }
         } while (repetir == 's' || repetir == 'S');
     }
-        else{
-    
-        
-    
+    else
+    {
+
         // Mostra el menu de katia
         do
         {
@@ -283,11 +302,14 @@ void InicioSeccion(string usuario, string contrasena)
                 cout << "Opcion invalida" << endl;
                 break;
             }
-            if (opcion != 3){
-cout<<"Desea volver a intentarlo?"<<endl;
-cin  >> repetir;
-            }else{
-cout<<"Fin"<<endl;
+            if (opcion != 3)
+            {
+                cout << "Desea volver a intentarlo?" << endl;
+                cin >> repetir;
+            }
+            else
+            {
+                cout << "Fin" << endl;
             }
 
         } while (opcion != 3);
