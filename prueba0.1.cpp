@@ -165,6 +165,13 @@ double Ticket()
     ticket.close();
     ofstream limpiar("pedido.txt");
     limpiar.close();
+    if (total > 0){
+        ofstream cierre ("cierre_dia.txt", ios :: app);
+        if (cierre.is_open()){
+            cierre << total <<endl;
+            cierre.close();
+        }
+    }
     return total;
 }
 // Fin funciones Ticket.
@@ -185,6 +192,13 @@ void InicioSeccion(string usuario, string contrasena)
             cout << "3. Cierre del dia" << endl;
             cout << "4. Salir" << endl;
             cin >> opcion;
+            // (R) justificar esta parte.
+            if  (cin.fail())
+            {
+                cin.clear();
+                cin.ignore (1000, '\n');
+                opcion = 0;
+            }
             switch (opcion)
             {
             case 1:
@@ -230,7 +244,7 @@ void InicioSeccion(string usuario, string contrasena)
                 double montoticket = 0.0, totalDia = 0.0;
                 int numeroticket = 0;
                 cout << "==== CIERRE DEL DIA ====" << endl;
-                if (archivoCierre.is_open())
+                if (!archivoCierre.is_open())
                 {
                     cout << "No hay registros de ventas" << endl;
                 }
@@ -281,7 +295,12 @@ void InicioSeccion(string usuario, string contrasena)
             cout << "3.Salir" << endl;
             cout << "Elija una opcion" << endl;
             cin >> opcion;
-
+if  (cin.fail())
+            {
+                cin.clear();
+                cin.ignore (1000, '\n');
+                opcion = 0;
+            }
             switch (opcion)
             {
             case 1:
@@ -319,12 +338,20 @@ void InicioSeccion(string usuario, string contrasena)
 
 int main()
 {
-    string usuario = "", contrasena = "";
+     string usuario = "", contrasena = "";
+    char volverlogin =  's';
+    do{
     cout << "----SISTEMA DE CAFETERIA----" << endl;
     cout << "Introduzca el usuario" << endl;
     cin >> usuario;
     cout << "Introduzca la contrasena" << endl;
     cin >> contrasena;
     InicioSeccion(usuario, contrasena);
+    cout<<"Desea volver a ingresar usuario y contrasena?"<<endl;
+    cin >> volverlogin;
+    } while (volverlogin == 's' || volverlogin == 'S');
+    
+    cout<<"Programa finalizado."<<endl;
+
     return 0;
 }
