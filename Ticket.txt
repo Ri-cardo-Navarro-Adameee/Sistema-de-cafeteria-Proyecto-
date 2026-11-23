@@ -10,3 +10,10 @@ Combo Snack.Codigo: 6 Cantidad: 6 $ 12
 Combo Especial.Codigo: 4 Cantidad: 5 $ 15
  Total: $ 15
 -------------------------
+ Ticket De Venta 
+Combo Desayuno.Codigo: 1 Cantidad: 2 $ 3.5
+ Total: $ 3.5
+-------------------------
+ Ticket De Venta 
+ Total: $ 0
+-------------------------
