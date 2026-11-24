@@ -1,0 +1,6 @@
+1|Combo Desayuno: Pupusas + Cafe|1.75
+2|Combo Tradicional: Desayuno Tipico + Cafe|1.75
+3|Combo Almuerzo: Carne + Coca-Cola|3.50
+4|Combo Salvadoreno: Sopa de pata + Coca-Cola|3.55
+5|Combo Tipico: Empanadas, Elote loco, Yuca frita|2.50
+6|Combo Snack: Chips + Coca-Cola|2.00"
